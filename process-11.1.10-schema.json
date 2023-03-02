@@ -1,0 +1,946 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "format" : {
+      "type" : "string",
+      "pattern" : "^[0-9]+.[0-9]+.[0-9]+$"
+    },
+    "id" : {
+      "type" : "string",
+      "pattern" : "^[A-F0-9]{16,}$"
+    },
+    "kind" : {
+      "$ref" : "#/$defs/ProcessKind"
+    },
+    "config" : {
+      "$ref" : "#/$defs/config.ProcessConfig"
+    },
+    "elements" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/Node"
+      }
+    },
+    "layout" : {
+      "$ref" : "#/$defs/visual.Layout"
+    }
+  },
+  "$defs" : {
+    "Connector" : {
+      "type" : "object",
+      "properties" : {
+        "color" : {
+          "type" : "string"
+        },
+        "condition" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "label" : {
+          "type" : "string"
+        },
+        "offset" : {
+          "$ref" : "#/$defs/visual.Point"
+        },
+        "outVar" : {
+          "type" : "string"
+        },
+        "segment" : {
+          "type" : "number"
+        },
+        "to" : {
+          "type" : "string"
+        },
+        "var" : {
+          "type" : "string"
+        },
+        "via" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/visual.Point"
+          }
+        }
+      }
+    },
+    "Node" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "ServiceBpmnElement", "TaskEndPage", "TaskSwitchGateway", "ReceiveBpmnElement", "ProcessAnnotation", "SubProcessCall", "EmbeddedEnd", "Database", "CallSubStart", "CallSubEnd", "Script", "Alternative", "SendBpmnElement", "ProgramInterface", "HtmlDialogExit", "ScriptBpmnElement", "HtmlDialogStart", "EmbeddedStart", "Split", "WebserviceEnd", "WebPage", "ErrorEnd", "UserBpmnElement", "RuleBpmnElement", "ErrorBoundaryEvent", "GenericBpmnElement", "HtmlDialogEventStart", "ProgramStart", "EmbeddedProcessElement", "WebServiceCall", "DialogCall", "TriggerCall", "ErrorStartEvent", "TaskEnd", "RequestStart", "WebserviceStart", "UserTask", "Join", "SignalBoundaryEvent", "EMail", "TaskSwitchEvent", "HtmlDialogMethodStart", "ThirdPartyProgramInterface", "WaitEvent", "RestClientCall", "ManualBpmnElement", "HtmlDialogEnd", "SignalStartEvent" ]
+        },
+        "impl" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "config" : {
+          "oneOf" : [ {
+            "$ref" : "#/$defs/element.ServiceBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.TaskEndPage"
+          }, {
+            "$ref" : "#/$defs/element.TaskSwitchGateway"
+          }, {
+            "$ref" : "#/$defs/element.ReceiveBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.ProcessAnnotation"
+          }, {
+            "$ref" : "#/$defs/element.SubProcessCall"
+          }, {
+            "$ref" : "#/$defs/element.EmbeddedEnd"
+          }, {
+            "$ref" : "#/$defs/element.Database"
+          }, {
+            "$ref" : "#/$defs/element.CallSubStart"
+          }, {
+            "$ref" : "#/$defs/element.CallSubEnd"
+          }, {
+            "$ref" : "#/$defs/element.Script"
+          }, {
+            "$ref" : "#/$defs/element.Alternative"
+          }, {
+            "$ref" : "#/$defs/element.SendBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.ProgramInterface"
+          }, {
+            "$ref" : "#/$defs/element.HtmlDialogExit"
+          }, {
+            "$ref" : "#/$defs/element.ScriptBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.HtmlDialogStart"
+          }, {
+            "$ref" : "#/$defs/element.EmbeddedStart"
+          }, {
+            "$ref" : "#/$defs/element.Split"
+          }, {
+            "$ref" : "#/$defs/element.WebserviceEnd"
+          }, {
+            "$ref" : "#/$defs/element.WebPage"
+          }, {
+            "$ref" : "#/$defs/element.ErrorEnd"
+          }, {
+            "$ref" : "#/$defs/element.UserBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.RuleBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.ErrorBoundaryEvent"
+          }, {
+            "$ref" : "#/$defs/element.GenericBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.HtmlDialogEventStart"
+          }, {
+            "$ref" : "#/$defs/element.ProgramStart"
+          }, {
+            "$ref" : "#/$defs/element.EmbeddedProcessElement"
+          }, {
+            "$ref" : "#/$defs/element.WebServiceCall"
+          }, {
+            "$ref" : "#/$defs/element.DialogCall"
+          }, {
+            "$ref" : "#/$defs/element.TriggerCall"
+          }, {
+            "$ref" : "#/$defs/element.ErrorStartEvent"
+          }, {
+            "$ref" : "#/$defs/element.TaskEnd"
+          }, {
+            "$ref" : "#/$defs/element.RequestStart"
+          }, {
+            "$ref" : "#/$defs/element.WebserviceStart"
+          }, {
+            "$ref" : "#/$defs/element.UserTask"
+          }, {
+            "$ref" : "#/$defs/element.Join"
+          }, {
+            "$ref" : "#/$defs/element.SignalBoundaryEvent"
+          }, {
+            "$ref" : "#/$defs/element.EMail"
+          }, {
+            "$ref" : "#/$defs/element.TaskSwitchEvent"
+          }, {
+            "$ref" : "#/$defs/element.HtmlDialogMethodStart"
+          }, {
+            "$ref" : "#/$defs/element.WaitEvent"
+          }, {
+            "$ref" : "#/$defs/element.RestClientCall"
+          }, {
+            "$ref" : "#/$defs/element.ManualBpmnElement"
+          }, {
+            "$ref" : "#/$defs/element.HtmlDialogEnd"
+          }, {
+            "$ref" : "#/$defs/element.SignalStartEvent"
+          } ]
+        },
+        "docs" : {
+          "$ref" : "#/$defs/script.Mappings"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "visual" : {
+          "$ref" : "#/$defs/visual.Attributes"
+        },
+        "connect" : {
+          "$ref" : "#/$defs/Connector"
+        },
+        "elements" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/Node"
+          }
+        },
+        "boundaries" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/Node"
+          }
+        },
+        "parentConnector" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ProcessKind" : {
+      "type" : "string",
+      "enum" : [ "NORMAL", "WEB_SERVICE", "CALLABLE_SUB", "HTML_DIALOG" ]
+    },
+    "QueryKind" : {
+      "type" : "string",
+      "enum" : [ "READ", "WRITE", "UPDATE", "DELETE", "ANY" ]
+    },
+    "cache.Cache" : {
+      "type" : "object",
+      "properties" : {
+        "entry" : {
+          "$ref" : "#/$defs/cache.CacheArtifact"
+        },
+        "group" : {
+          "$ref" : "#/$defs/cache.CacheArtifact"
+        },
+        "mode" : {
+          "$ref" : "#/$defs/cache.Mode"
+        },
+        "scope" : {
+          "$ref" : "#/$defs/cache.Scope"
+        }
+      }
+    },
+    "cache.CacheArtifact" : {
+      "type" : "object",
+      "properties" : {
+        "invalidation" : {
+          "$ref" : "#/$defs/cache.Invalidation"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "time" : {
+          "type" : "string"
+        }
+      }
+    },
+    "cache.Invalidation" : {
+      "type" : "string",
+      "enum" : [ "NONE", "FIXED_TIME", "LIFETIME" ]
+    },
+    "cache.Mode" : {
+      "type" : "string",
+      "enum" : [ "DO_NOT_CACHE", "CACHE", "INVALIDATE_CACHE" ]
+    },
+    "cache.Scope" : {
+      "type" : "string",
+      "enum" : [ "SESSION", "APPLICATION" ]
+    },
+    "config.PermissionView" : {
+      "type" : "object",
+      "properties" : {
+        "allowed" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "config.Permissions" : {
+      "type" : "object",
+      "properties" : {
+        "view" : {
+          "$ref" : "#/$defs/config.PermissionView"
+        }
+      }
+    },
+    "config.ProcessConfig" : {
+      "type" : "object",
+      "properties" : {
+        "data" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "$ref" : "#/$defs/config.Permissions"
+        },
+        "wsAuth" : {
+          "type" : "string"
+        },
+        "wsTypeName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "db.DbQuery" : {
+      "type" : "object",
+      "properties" : {
+        "dbName" : {
+          "type" : "string"
+        },
+        "limit" : {
+          "type" : "string"
+        },
+        "offset" : {
+          "type" : "string"
+        },
+        "sql" : {
+          "$ref" : "#/$defs/db.SqlStatement"
+        }
+      }
+    },
+    "db.SqlStatement" : {
+      "type" : "object",
+      "properties" : {
+        "condition" : {
+          "type" : "string"
+        },
+        "fields" : {
+          "$ref" : "#/$defs/script.Mappings"
+        },
+        "kind" : {
+          "$ref" : "#/$defs/QueryKind"
+        },
+        "orderBy" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "quote" : {
+          "type" : "boolean"
+        },
+        "select" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "stmt" : {
+          "type" : "string"
+        },
+        "table" : {
+          "type" : "string"
+        }
+      }
+    },
+    "element.Alternative" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.CallSubEnd" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.CallSubStart" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.Database" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "cache" : {
+          "$ref" : "#/$defs/cache.Cache"
+        },
+        "query" : {
+          "$ref" : "#/$defs/db.DbQuery"
+        },
+        "exceptionHandler" : {
+          "type" : "string"
+        }
+      }
+    },
+    "element.DialogCall" : {
+      "type" : "object",
+      "properties" : {
+        "call" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "dialog" : {
+          "type" : "string"
+        }
+      }
+    },
+    "element.EMail" : {
+      "type" : "object",
+      "properties" : {
+        "headers" : {
+          "$ref" : "#/$defs/mail.Headers"
+        },
+        "failIfMissingAttachments" : {
+          "type" : "boolean"
+        },
+        "attachments" : {
+          "type" : "array",
+          "items" : { }
+        },
+        "message" : {
+          "$ref" : "#/$defs/mail.Message"
+        },
+        "exceptionHandler" : {
+          "type" : "string"
+        }
+      }
+    },
+    "element.EmbeddedEnd" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.EmbeddedProcessElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.EmbeddedStart" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ErrorBoundaryEvent" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.ErrorEnd" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ErrorStartEvent" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.GenericBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.HtmlDialogEnd" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.HtmlDialogEventStart" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.HtmlDialogExit" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.HtmlDialogMethodStart" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.HtmlDialogStart" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.Join" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.ManualBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ProcessAnnotation" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ProgramInterface" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ProgramStart" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ReceiveBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.RequestStart" : {
+      "type" : "object",
+      "properties" : {
+        "task" : {
+          "$ref" : "#/$defs/wf.Task"
+        },
+        "case" : {
+          "$ref" : "#/$defs/wf.Case"
+        }
+      }
+    },
+    "element.RestClientCall" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.RuleBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.Script" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "sudo" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "element.ScriptBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.SendBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.ServiceBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.SignalBoundaryEvent" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.SignalStartEvent" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.Split" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.SubProcessCall" : {
+      "type" : "object",
+      "properties" : {
+        "call" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.TaskEnd" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.TaskEndPage" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.TaskSwitchEvent" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "task" : {
+          "$ref" : "#/$defs/wf.Task"
+        },
+        "case" : {
+          "$ref" : "#/$defs/wf.Case"
+        }
+      }
+    },
+    "element.TaskSwitchGateway" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "case" : {
+          "$ref" : "#/$defs/wf.Case"
+        }
+      }
+    },
+    "element.TriggerCall" : {
+      "type" : "object",
+      "properties" : {
+        "call" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.UserBpmnElement" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.UserTask" : {
+      "type" : "object",
+      "properties" : {
+        "call" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "dialog" : {
+          "type" : "string"
+        },
+        "task" : {
+          "$ref" : "#/$defs/wf.Task"
+        },
+        "case" : {
+          "$ref" : "#/$defs/wf.Case"
+        }
+      }
+    },
+    "element.WaitEvent" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        }
+      }
+    },
+    "element.WebPage" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.WebServiceCall" : {
+      "type" : "object",
+      "properties" : {
+        "output" : {
+          "$ref" : "#/$defs/script.MapCode"
+        },
+        "cache" : {
+          "$ref" : "#/$defs/cache.Cache"
+        }
+      }
+    },
+    "element.WebserviceEnd" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "element.WebserviceStart" : {
+      "type" : "object",
+      "properties" : {
+        "task" : {
+          "$ref" : "#/$defs/wf.Task"
+        },
+        "case" : {
+          "$ref" : "#/$defs/wf.Case"
+        }
+      }
+    },
+    "mail.Headers" : {
+      "type" : "object",
+      "properties" : {
+        "bcc" : {
+          "type" : "string"
+        },
+        "cc" : {
+          "type" : "string"
+        },
+        "from" : {
+          "type" : "string"
+        },
+        "replyTo" : {
+          "type" : "string"
+        },
+        "subject" : {
+          "type" : "string"
+        },
+        "to" : {
+          "type" : "string"
+        }
+      }
+    },
+    "mail.Message" : {
+      "type" : "object",
+      "properties" : {
+        "body" : {
+          "type" : "string"
+        },
+        "contentType" : {
+          "type" : "string"
+        }
+      }
+    },
+    "script.MapCode" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "map" : {
+          "$ref" : "#/$defs/script.Mappings"
+        }
+      }
+    },
+    "script.Mappings" : {
+      "type" : "object",
+      "additionalProperties" : {
+        "type" : "string"
+      }
+    },
+    "visual.Attributes" : {
+      "type" : "object",
+      "properties" : {
+        "at" : {
+          "$ref" : "#/$defs/visual.Point"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "labelOffset" : {
+          "$ref" : "#/$defs/visual.Point"
+        },
+        "size" : {
+          "$ref" : "#/$defs/visual.Size"
+        }
+      }
+    },
+    "visual.Lane" : {
+      "type" : "object",
+      "properties" : {
+        "lanes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/visual.Lane"
+          }
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "offset" : {
+          "type" : "integer"
+        },
+        "size" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "visual.Layout" : {
+      "type" : "object",
+      "properties" : {
+        "color" : {
+          "$ref" : "#/$defs/script.Mappings"
+        },
+        "lanes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/visual.Lane"
+          }
+        }
+      }
+    },
+    "visual.Point" : {
+      "type" : "object",
+      "properties" : {
+        "x" : {
+          "type" : "integer"
+        },
+        "y" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "visual.Size" : {
+      "type" : "object",
+      "properties" : {
+        "height" : {
+          "type" : "integer"
+        },
+        "width" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "wf.Activator" : {
+      "type" : "object",
+      "properties" : {
+        "activator" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#/$defs/wf.ActivatorType"
+        }
+      }
+    },
+    "wf.ActivatorType" : {
+      "type" : "string",
+      "enum" : [ "ROLE", "ROLE_FROM_ATTRIBUTE", "USER_FROM_ATTRIBUTE", "DELETE_TASK" ]
+    },
+    "wf.Case" : {
+      "type" : "object",
+      "properties" : {
+        "attachToBusinessCase" : {
+          "type" : "boolean"
+        },
+        "category" : {
+          "type" : "string"
+        },
+        "customFields" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/wf.CustomField"
+          }
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "wf.CustomField" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#/$defs/wf.FieldType"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "wf.Expiry" : {
+      "type" : "object",
+      "properties" : {
+        "error" : {
+          "type" : "string"
+        },
+        "priority" : {
+          "$ref" : "#/$defs/wf.Priority"
+        },
+        "responsible" : {
+          "$ref" : "#/$defs/wf.Activator"
+        },
+        "timeout" : {
+          "type" : "string"
+        }
+      }
+    },
+    "wf.FieldType" : {
+      "type" : "string",
+      "enum" : [ "STRING", "TEXT", "NUMBER", "TIMESTAMP" ]
+    },
+    "wf.Level" : {
+      "type" : "string",
+      "enum" : [ "EXCEPTION", "HIGH", "NORMAL", "LOW", "SCRIPT" ]
+    },
+    "wf.Priority" : {
+      "type" : "object",
+      "properties" : {
+        "level" : {
+          "$ref" : "#/$defs/wf.Level"
+        },
+        "script" : {
+          "type" : "string"
+        }
+      }
+    },
+    "wf.Task" : {
+      "type" : "object",
+      "properties" : {
+        "category" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "customFields" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/wf.CustomField"
+          }
+        },
+        "delay" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "expiry" : {
+          "$ref" : "#/$defs/wf.Expiry"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "priority" : {
+          "$ref" : "#/$defs/wf.Priority"
+        },
+        "responsible" : {
+          "$ref" : "#/$defs/wf.Activator"
+        },
+        "skipTasklist" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  }
+}

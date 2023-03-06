@@ -26,6 +26,7 @@
       "$ref" : "#/$defs/visual-Layout"
     }
   },
+  "additionalProperties" : false,
   "$defs" : {
     "Connector" : {
       "type" : "object",
@@ -57,7 +58,8 @@
             "$ref" : "#/$defs/visual-Point"
           }
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "Node" : {
       "type" : "object",
@@ -205,7 +207,8 @@
             "$ref" : "#/$defs/Connector"
           }
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "ProcessKind" : {
       "type" : "string",
@@ -221,7 +224,8 @@
         "items" : {
           "type" : "string"
         }
-      } ]
+      } ],
+      "additionalProperties" : false
     },
     "cache-Cache" : {
       "type" : "object",
@@ -238,7 +242,8 @@
         "scope" : {
           "$ref" : "#/$defs/cache-Scope"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "cache-CacheArtifact" : {
       "type" : "object",
@@ -252,7 +257,8 @@
         "time" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "cache-Invalidation" : {
       "type" : "string",
@@ -272,7 +278,8 @@
         "allowed" : {
           "type" : "boolean"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "config-Permissions" : {
       "type" : "object",
@@ -280,7 +287,8 @@
         "view" : {
           "$ref" : "#/$defs/config-PermissionView"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "config-ProcessConfig" : {
       "type" : "object",
@@ -297,7 +305,8 @@
         "wsTypeName" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "db-DbQuery" : {
       "type" : "object",
@@ -314,7 +323,8 @@
         "sql" : {
           "$ref" : "#/$defs/db-SqlStatement"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "db-SqlStatement" : {
       "type" : "object",
@@ -349,19 +359,23 @@
         "table" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-Alternative" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-CallSubEnd" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-CallSubStart" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-Database" : {
       "type" : "object",
@@ -378,7 +392,8 @@
         "exceptionHandler" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-DialogCall" : {
       "type" : "object",
@@ -392,7 +407,8 @@
         "dialog" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-EMail" : {
       "type" : "object",
@@ -405,7 +421,9 @@
         },
         "attachments" : {
           "type" : "array",
-          "items" : { }
+          "items" : {
+            "additionalProperties" : false
+          }
         },
         "message" : {
           "$ref" : "#/$defs/mail-Message"
@@ -413,19 +431,23 @@
         "exceptionHandler" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-EmbeddedEnd" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-EmbeddedProcessElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-EmbeddedStart" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ErrorBoundaryEvent" : {
       "type" : "object",
@@ -433,11 +455,13 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-ErrorEnd" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ErrorStartEvent" : {
       "type" : "object",
@@ -445,15 +469,18 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-GenericBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-HtmlDialogEnd" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-HtmlDialogEventStart" : {
       "type" : "object",
@@ -461,11 +488,13 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-HtmlDialogExit" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-HtmlDialogMethodStart" : {
       "type" : "object",
@@ -473,7 +502,8 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-HtmlDialogStart" : {
       "type" : "object",
@@ -481,7 +511,8 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-Join" : {
       "type" : "object",
@@ -489,27 +520,33 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-ManualBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ProcessAnnotation" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ProgramInterface" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ProgramStart" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ReceiveBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-RequestStart" : {
       "type" : "object",
@@ -520,15 +557,18 @@
         "case" : {
           "$ref" : "#/$defs/wf-Case"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-RestClientCall" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-RuleBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-Script" : {
       "type" : "object",
@@ -539,19 +579,23 @@
         "sudo" : {
           "type" : "boolean"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-ScriptBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-SendBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-ServiceBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-SignalBoundaryEvent" : {
       "type" : "object",
@@ -559,7 +603,8 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-SignalStartEvent" : {
       "type" : "object",
@@ -567,7 +612,8 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-Split" : {
       "type" : "object",
@@ -575,7 +621,8 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-SubProcessCall" : {
       "type" : "object",
@@ -586,15 +633,18 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-TaskEnd" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-TaskEndPage" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-TaskSwitchEvent" : {
       "type" : "object",
@@ -608,7 +658,8 @@
         "case" : {
           "$ref" : "#/$defs/wf-Case"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-TaskSwitchGateway" : {
       "type" : "object",
@@ -619,7 +670,8 @@
         "case" : {
           "$ref" : "#/$defs/wf-Case"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-TriggerCall" : {
       "type" : "object",
@@ -630,11 +682,13 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-UserBpmnElement" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-UserTask" : {
       "type" : "object",
@@ -654,7 +708,8 @@
         "case" : {
           "$ref" : "#/$defs/wf-Case"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-WaitEvent" : {
       "type" : "object",
@@ -662,11 +717,13 @@
         "output" : {
           "$ref" : "#/$defs/script-MapCode"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-WebPage" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-WebServiceCall" : {
       "type" : "object",
@@ -677,11 +734,13 @@
         "cache" : {
           "$ref" : "#/$defs/cache-Cache"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "element-WebserviceEnd" : {
       "type" : "object",
-      "properties" : { }
+      "properties" : { },
+      "additionalProperties" : false
     },
     "element-WebserviceStart" : {
       "type" : "object",
@@ -692,7 +751,8 @@
         "case" : {
           "$ref" : "#/$defs/wf-Case"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "mail-Headers" : {
       "type" : "object",
@@ -715,7 +775,8 @@
         "to" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "mail-Message" : {
       "type" : "object",
@@ -726,7 +787,8 @@
         "contentType" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "script-MapCode" : {
       "type" : "object",
@@ -737,7 +799,8 @@
         "map" : {
           "$ref" : "#/$defs/script-Mappings"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "script-Mappings" : {
       "type" : "object",
@@ -763,10 +826,23 @@
         "size" : {
           "$ref" : "#/$defs/visual-Size"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "visual-ConnectorLabel" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "offset" : {
+          "$ref" : "#/$defs/visual-Point"
+        },
+        "segment" : {
+          "type" : "number"
+        }
+      },
+      "additionalProperties" : false
     },
     "visual-Lane" : {
       "type" : "object",
@@ -786,7 +862,8 @@
         "size" : {
           "type" : "integer"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "visual-Layout" : {
       "type" : "object",
@@ -800,7 +877,8 @@
             "$ref" : "#/$defs/visual-Lane"
           }
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "visual-Point" : {
       "type" : "object",
@@ -811,7 +889,8 @@
         "y" : {
           "type" : "integer"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "visual-Size" : {
       "type" : "object",
@@ -822,7 +901,8 @@
         "width" : {
           "type" : "integer"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "wf-Activator" : {
       "type" : "object",
@@ -833,7 +913,8 @@
         "type" : {
           "$ref" : "#/$defs/wf-ActivatorType"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "wf-ActivatorType" : {
       "type" : "string",
@@ -860,7 +941,8 @@
         "name" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "wf-CustomField" : {
       "type" : "object",
@@ -874,7 +956,8 @@
         "value" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "wf-Expiry" : {
       "type" : "object",
@@ -891,7 +974,8 @@
         "timeout" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "wf-FieldType" : {
       "type" : "string",
@@ -910,7 +994,8 @@
         "script" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "wf-Task" : {
       "type" : "object",
@@ -948,7 +1033,8 @@
         "skipTasklist" : {
           "type" : "boolean"
         }
-      }
+      },
+      "additionalProperties" : false
     }
   }
 }
